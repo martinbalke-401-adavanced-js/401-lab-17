@@ -4,7 +4,9 @@
   "description": "",
   "main": "file-changer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "jest --verbose --coverage",
+    "lint": "eslint '**/*.js' --fix"
   },
   "author": "",
   "license": "ISC",
