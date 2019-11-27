@@ -14,11 +14,10 @@ const alterFile = async file => {
   try {
     let contents = await readFile(file);
     await writeFile(file, faker.lorem.sentence());
-    socket.emit('save', file);
+    socket.emit('save', {status: 1, file, message: `File saved successfully`, contents});
     console.log(`${file} saved`);
-  } catch (e) {
-    console.error(e);
-    socket.emit('err', file);
+  } catch (error) {
+    socket.emit('err',{ status: 0, file, message: error.message});
   }
 };
 
